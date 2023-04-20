@@ -6,7 +6,6 @@ const CallAxios = () => {
     
     const get = async () => {
         const res = await axios.get(url);
-        console.log(res)
         return res;
         
     };

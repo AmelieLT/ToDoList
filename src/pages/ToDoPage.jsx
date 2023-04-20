@@ -7,14 +7,20 @@ import { useState } from 'react'
 
 const ToDoPage = () => {
 
-  const [addedInput, setAddedInput] = useState({text:''})
+  const initialForm = {
+    id: null,
+    text: ''
+};
+
+  const [addedInput, setAddedInput] = useState(initialForm)
+  const [activity, setActivities] = useState([]);
 
   return (
     <>
       <Header/>
       <div className="boxToDoPage">
-        <Form addedInput={addedInput} setAddedInput={setAddedInput}/>
-        <List addedInput={addedInput}/>
+        <Form initialForm={initialForm} addedInput={addedInput} setAddedInput={setAddedInput} activity={activity} setActivities={setActivities}/>
+        <List activity={activity} setActivities={setActivities}/>
       </div>
     </>
     

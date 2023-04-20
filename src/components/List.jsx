@@ -1,12 +1,12 @@
 import React from 'react'
 import Activitie from './Activitie'
 import '../styles/style.css'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import CallAxios from '../services/CallAxios'
 
-const List = () => {
+const List = ({activity, setActivities}) => {
 
-const [activity, setActivities] = useState([]);
+
 
 async function callGet(){
   await CallAxios().get()
@@ -18,7 +18,7 @@ async function callGet(){
 
  async function deleteActivity(id){
   await CallAxios().trash(id)
-  const fiteredActivities=activity.filter(task =>task.id !== id)
+  const fiteredActivities = activity.filter(task =>task.id !== id)
   setActivities(fiteredActivities)
   }
   useEffect(() => {callGet()},[])

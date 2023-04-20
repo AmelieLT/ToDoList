@@ -1,7 +1,7 @@
 import React from 'react'
 import CallAxios from '../services/CallAxios'
 
-const Form = ({ addedInput, setAddedInput }) => {
+const Form = ({ initialForm, activity, setActivities , addedInput, setAddedInput }) => {
 
   const handleInputChange = (event) => {
     setAddedInput({
@@ -10,16 +10,22 @@ const Form = ({ addedInput, setAddedInput }) => {
     })
   }
  
+  const handleReset = () => {
+    addedInput(initialForm);
+    //setEditTask('');
+    //setError('');
+};
 
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    CallAxios().submit(addedInput)
-    ;
- 
-
-
+    await CallAxios().submit(addedInput).then(res => {
+      setActivities([...activity, res.data]);
+    });
+    handleReset();
   }
 
+ 
   return (
     <>
    <form onSubmit={handleSubmit}>
