@@ -10,27 +10,29 @@ const Form = ({ initialForm, activity, setActivities , addedInput, setAddedInput
     })
   }
  
-  const handleReset = () => {
-    addedInput(initialForm);
-    //setEditTask('');
-    //setError('');
-};
+ 
 
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    await CallAxios().submit(addedInput).then(res => {
+    CallAxios().submit(addedInput).then(res => {
       setActivities([...activity, res.data]);
     });
     handleReset();
   }
 
+  const handleReset = () => {
+    setAddedInput(initialForm);
+    console.log(addedInput)
+    //setEditTask('');
+    //setError('');
+};
  
   return (
     <>
    <form onSubmit={handleSubmit}>
         <div className='boxForm'>
-          <input className='inActivity' type='text' name='text' placeholder='introduzca actividad' onChange={handleInputChange} required ></input>
+          <input className='inActivity' type='text' name='text' placeholder='introduzca actividad' value={addedInput.text} onChange={handleInputChange} required ></input>
           <button className='btnAgregar' type='submit'>agregar</button>
         </div>
     </form> 
