@@ -1,10 +1,16 @@
 import React from 'react'
 import CallAxios from '../services/CallAxios'
 import { useEffect } from 'react'
+import { useState } from 'react'
 
-const Form = ({ initialForm, activity, setActivities , addedInput, setAddedInput, editActivity, setEditActivities}) => {
+const Form = ({ activity, setActivities, editActivity, setEditActivities}) => {
   
+  const initialForm = {
+    id: null,
+    text: ''
+};
 
+const [addedInput, setAddedInput] = useState(initialForm)
   
   
   useEffect(() => {
@@ -32,9 +38,7 @@ const Form = ({ initialForm, activity, setActivities , addedInput, setAddedInput
           
         };
     })};
-   
     
- 
   const handleSubmit = (event) => {
     event.preventDefault();
     

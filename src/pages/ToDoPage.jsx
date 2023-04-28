@@ -8,12 +8,7 @@ import { useState } from 'react'
 
 const ToDoPage = () => {
 
-  const initialForm = {
-    id: null,
-    text: ''
-};
 
-const [addedInput, setAddedInput] = useState(initialForm)
   const [activity, setActivities] = useState([]);
   const [editActivity, setEditActivities] = useState();
   
@@ -27,8 +22,8 @@ const [addedInput, setAddedInput] = useState(initialForm)
     <>
       <Header/>
       <div className="boxToDoPage">
-        <Form initialForm={initialForm} addedInput={addedInput} setAddedInput={setAddedInput} activity={activity} setActivities={setActivities} editActivity={editActivity} setEditActivities={setEditActivities}/>
-        <List initialForm={initialForm} activity={activity} setActivities={setActivities} setEditActivities={setEditActivities} editActivity={editActivity} />
+        <Form activity={activity} setActivities={setActivities} editActivity={editActivity} setEditActivities={setEditActivities}/>
+        <List activity={activity} setActivities={setActivities} setEditActivities={setEditActivities}/>
       </div>
     </>
     
