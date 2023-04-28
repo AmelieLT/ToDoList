@@ -1,7 +1,14 @@
 import React from 'react'
 import CallAxios from '../services/CallAxios'
+import { useEffect } from 'react'
 
-const Form = ({ initialForm, activity, setActivities , addedInput, setAddedInput }) => {
+const Form = ({ initialForm, activity, setActivities , addedInput, setAddedInput, editActivity, setEditActivities}) => {
+  console.log(editActivity)
+  console.log(addedInput)
+  
+  useEffect(() => {
+    editActivity ? setAddedInput(editActivity) : setAddedInput(initialForm);
+}, [])
 
   const handleInputChange = (event) => {
     setAddedInput({
@@ -9,18 +16,35 @@ const Form = ({ initialForm, activity, setActivities , addedInput, setAddedInput
       [event.target.name]: event.target.value
     })
   }
- 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+
+  const createActivity = () => {
     CallAxios().submit(addedInput).then(res => {
       setActivities([...activity, res.data]);
     });
+  }
+
+  const updateTask = (data) => {
+    CallAxios().update(data).then((res) => {
+        if (res.status === 200) {
+            const editedTask = activity.map(task => task.id === data.id ? data : task);
+            setActivities(editedTask);
+          
+        };
+    })};
+   
+    
+ 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    
+    addedInput.id === null ? createActivity(addedInput) : updateTask(addedInput)
     handleReset();
+  
   }
 
   const handleReset = () => {
     setAddedInput(initialForm);
-    //setEditTask('');
+    setEditActivities('');
 };
  
   return (

@@ -5,6 +5,7 @@ import List from '../components/List'
 import '../styles/toDoPage.css'
 import { useState } from 'react'
 
+
 const ToDoPage = () => {
 
   const initialForm = {
@@ -12,16 +13,22 @@ const ToDoPage = () => {
     text: ''
 };
 
-  const [addedInput, setAddedInput] = useState(initialForm)
+const [addedInput, setAddedInput] = useState(initialForm)
   const [activity, setActivities] = useState([]);
-  const [editActivity, setEditActivities] = useState([]);
+  const [editActivity, setEditActivities] = useState();
+  
+
+  
+
+
+  
 
   return (
     <>
       <Header/>
       <div className="boxToDoPage">
-        <Form initialForm={initialForm} addedInput={addedInput} setAddedInput={setAddedInput} activity={activity} setActivities={setActivities}/>
-        <List activity={activity} setActivities={setActivities} setEditActivities={setEditActivities}/>
+        <Form initialForm={initialForm} addedInput={addedInput} setAddedInput={setAddedInput} activity={activity} setActivities={setActivities} editActivity={editActivity} setEditActivities={setEditActivities}/>
+        <List initialForm={initialForm} activity={activity} setActivities={setActivities} setEditActivities={setEditActivities} editActivity={editActivity} />
       </div>
     </>
     
