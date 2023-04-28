@@ -1,8 +1,12 @@
 {
   "activities": [
     {
+      "id": 0,
+      "text": "Ver tutorial React I"
+    },
+    {
       "id": 1,
-      "text": "Ver tutorial React IIoooo"
+      "text": "Ver tutorial React II"
     },
     {
       "id": 2,
@@ -13,8 +17,8 @@
       "text": "Ver tutorial React IV"
     },
     {
-      "id": 5,
-      "text": "Ver tutorial React VI"
+      "id": 4,
+      "text": "Ver tutorial React V"
     }
   ]
 }
