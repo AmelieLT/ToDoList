@@ -4,7 +4,7 @@ import '../styles/style.css'
 import { useEffect } from 'react'
 import CallAxios from '../services/CallAxios'
 
-const List = ({activity, setActivities}) => {
+const List = ({activity, setActivities, setEditActivities}) => {
 
 
 
@@ -28,7 +28,7 @@ return(
       <ul className='boxList'> 
         {activity.map(item => ( 
           <li key={item.id}> 
-              <Activitie text={item.text} deleteActivity={deleteActivity} id={item.id}/>
+              <Activitie text={item.text} deleteActivity={deleteActivity} activity={activity} id={item.id} setEditActivities={setEditActivities}/>
           </li> ))} 
       </ul>
     </>

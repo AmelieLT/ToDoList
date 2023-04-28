@@ -21,17 +21,17 @@ const CallAxios = () => {
         return res;
     };
 
-    /*const update = async (data) => {
+    const update = async (data) => {
         let urlID = `${url}/${data.id}`;
         const res = await axios.put(urlID, data);
         return res;
-    };*/
+    };
  
     return {
         get,
         trash,
         submit,
-        //update,
+        update,
         url
     };
 }

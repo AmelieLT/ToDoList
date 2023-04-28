@@ -14,13 +14,14 @@ const ToDoPage = () => {
 
   const [addedInput, setAddedInput] = useState(initialForm)
   const [activity, setActivities] = useState([]);
+  const [editActivity, setEditActivities] = useState([]);
 
   return (
     <>
       <Header/>
       <div className="boxToDoPage">
         <Form initialForm={initialForm} addedInput={addedInput} setAddedInput={setAddedInput} activity={activity} setActivities={setActivities}/>
-        <List activity={activity} setActivities={setActivities}/>
+        <List activity={activity} setActivities={setActivities} setEditActivities={setEditActivities}/>
       </div>
     </>
     

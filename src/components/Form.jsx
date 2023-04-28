@@ -10,9 +10,6 @@ const Form = ({ initialForm, activity, setActivities , addedInput, setAddedInput
     })
   }
  
- 
-
-
   const handleSubmit = (event) => {
     event.preventDefault();
     CallAxios().submit(addedInput).then(res => {
@@ -23,9 +20,7 @@ const Form = ({ initialForm, activity, setActivities , addedInput, setAddedInput
 
   const handleReset = () => {
     setAddedInput(initialForm);
-    console.log(addedInput)
     //setEditTask('');
-    //setError('');
 };
  
   return (
