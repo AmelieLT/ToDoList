@@ -4,7 +4,7 @@ import '../styles/style.css'
 const Header = () => {
   return (
     <div>
-      <h1 className="txtToDoList">ToDo List</h1>
+      <h1 className="txtToDoList">To Do List</h1>
     </div>
   )
 }
