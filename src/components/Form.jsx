@@ -3,12 +3,13 @@ import CallAxios from '../services/CallAxios'
 import { useEffect } from 'react'
 
 const Form = ({ initialForm, activity, setActivities , addedInput, setAddedInput, editActivity, setEditActivities}) => {
-  console.log(editActivity)
-  console.log(addedInput)
+  
+
+  
   
   useEffect(() => {
     editActivity ? setAddedInput(editActivity) : setAddedInput(initialForm);
-}, [])
+}, [editActivity])
 
   const handleInputChange = (event) => {
     setAddedInput({
